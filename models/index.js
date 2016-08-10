@@ -18,7 +18,10 @@ var Page = db.define('page', {
         allowNull: false
     },
     status: {
-        type: Sequelize.ENUM('open', 'closed')
+        type: Sequelize.ENUM('open', 'closed'),
+        validate: {
+            isIn: [['open', 'closed']]
+        }
     },
     tags: {
         type: Sequelize.ARRAY(Sequelize.TEXT),
