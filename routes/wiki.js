@@ -20,7 +20,6 @@ router.get('/', function (req, res, next) {
 
 // POST /wiki
 router.post('/', function (req, res, next) {
-
     User.findOrCreate({
         where: {
             email: req.body.authorEmail,
@@ -47,6 +46,10 @@ router.post('/', function (req, res, next) {
 router.get('/add', function (req, res) {
     res.render('addpage');
 });
+
+router.get('/search', function(req, res, next) {
+    res.render('index');
+})
 
 router.get('/search/:tag', function (req, res, next) {
 
